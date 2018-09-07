@@ -25,7 +25,7 @@ defmodule SqPy do
       mid * mid > n -> is_square?(n, f, mid - 1)
     end
   end
-  
+  # TODO Remove this 
   def hello do
     :world
   end

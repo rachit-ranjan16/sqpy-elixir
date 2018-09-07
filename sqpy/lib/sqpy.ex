@@ -6,20 +6,29 @@ defmodule SqPy do
   @doc """
   Prints out Starting Indexes for Lucas Square Pyramid given `N` and `k`
   """
-  def lucas_square(N, k) when N <=0 or k<=0 do
+  def lucas_square(n \\ 40, k \\ 24)
+  def lucas_square(n, k) when n <=0 or k<=0 or n < k do
     "Invalid Inputs"
   end
-  def lucas_square(N,k) when N > 0 and k >0 do
-    for i <- 1..N do
-      s = 0 
-      for j <- i..i+k do
-        s += j * j 
-      end
-      if is_square?(s) do
+  def lucas_square(n, k) when n > 0 and k >0 do
+    for i <- 1..n do
+      # TODO Remove Logging 
+      # IO.puts(Kernel.inspect(i) <> " " <> Kernel.inspect(i+k-1) <> " "<> Kernel.inspect(square_sum(i,i+k-1)) <> " " <> Kernel.inspect(:math.sqrt(square_sum(i, i + k - 1))))
+      if is_square?(square_sum(i,i+k-1)) do
         IO.puts(i)
       end 
     end
+    :ok
   end
+  @doc """
+  Sums up squares of numbers from `f` to `l`
+  """
+  def square_sum(f,l) when f > l do
+    0
+  end
+  def square_sum(f,l) when f <= l do
+    l * l + square_sum(f, l - 1)
+  end 
   @doc """
   Checks whether input `n` is a perfect square or not
   """

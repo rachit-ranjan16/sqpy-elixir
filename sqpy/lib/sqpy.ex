@@ -4,22 +4,46 @@ defmodule SqPy do
   """
 
   @doc """
+  Driver Method
+  """
+  def main(args) when Kernel.length(args) != 2 do
+    raise ArgumentError, message: "Insfficient/Excess Arguments. Enter N and k"
+  end
+  def main(args) do
+    if String.to_integer(Enum.at(args,0)) < String.to_integer(Enum.at(args,1)) do 
+      input_error "Invalid Inputs"
+    end 
+    lucas_square(String.to_integer(Enum.at(args,0)), String.to_integer(Enum.at(args,1)))
+  end
+  
+  defp input_error(msg) do
+    raise ArgumentError, message: msg
+  end
+  @doc """
   Prints out Starting Indexes for Lucas Square Pyramid given `N` and `k`
   """
   def lucas_square(n \\ 40, k \\ 24)
-  def lucas_square(n, k) when n <=0 or k<=0 or n < k do
-    "Invalid Inputs"
+  def lucas_square(n, k) when n <=0 or k<=0 do 
+    input_error "Invalid Inputs"
   end
+  # TODO Add Async Tasks here 
   def lucas_square(n, k) when n > 0 and k >0 do
+    IO.puts("N=#{n}")
+    IO.puts("k=#{k}")
     for i <- 1..n do
       # TODO Remove Logging 
       # IO.puts(Kernel.inspect(i) <> " " <> Kernel.inspect(i+k-1) <> " "<> Kernel.inspect(square_sum(i,i+k-1)) <> " " <> Kernel.inspect(:math.sqrt(square_sum(i, i + k - 1))))
-      if is_square?(square_sum(i,i+k-1)) do
-        IO.puts(i)
-      end 
+      Task.start_link(fn -> validate_sq_py(i, i + k - 1) end) 
     end
-    :ok
   end
+  @doc """
+  # TODO Fill this up 
+  """
+  def validate_sq_py(f,l) do 
+    if is_square?(square_sum(f,l)) do
+      IO.puts(f)
+    end
+  end  
   @doc """
   Sums up squares of numbers from `f` to `l`
   """
@@ -44,9 +68,5 @@ defmodule SqPy do
       mid * mid < n -> is_square?(n, mid + 1, l)
       mid * mid > n -> is_square?(n, f, mid - 1)
     end
-  end
-  # TODO Remove this
-  def hello do
-    :world
   end
 end

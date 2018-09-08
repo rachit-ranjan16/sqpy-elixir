@@ -6,6 +6,7 @@ defmodule SqPy.MixProject do
       app: :sqpy,
       version: "0.1.0",
       elixir: "~> 1.7",
+      escript: [main_module: SqPy],
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]

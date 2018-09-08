@@ -19,3 +19,8 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/sqpy](https://hexdocs.pm/sqpy).
 
+## Execution Commands 
+- cd sqpy 
+- mix run 
+- mix escript.build
+- ./sqpy N k 

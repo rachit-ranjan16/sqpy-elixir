@@ -53,7 +53,7 @@ defmodule SqPy do
   @doc """
   Sums up squares of numbers from `f` to `l`
   """
-  def square_sum(f,l) when f > l do
+  def square_sum(f,l) when f<=0 or l<=0 or f > l do
     0
   end
 

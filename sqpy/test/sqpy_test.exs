@@ -19,6 +19,10 @@ defmodule SqPyTest do
     assert SqPy.square_sum(3,5) === 50
   end
 
+  test "square sum neagtive args" do
+    assert SqPy.square_sum(-6,-5) === 0
+  end
+
   # test "lucas square for valid args" do
   #   assert SqPy.lucas_square(4,2) === 3
   # end

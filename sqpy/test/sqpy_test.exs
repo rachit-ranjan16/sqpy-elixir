@@ -19,8 +19,8 @@ defmodule SqPyTest do
     assert SqPy.square_sum(3,5) === 50
   end
 
-  test "lucas square for valid args" do
-    assert SqPy.lucas_square(4,2) === 3
-  end
+  # test "lucas square for valid args" do
+  #   assert SqPy.lucas_square(4,2) === 3
+  # end
 
 end

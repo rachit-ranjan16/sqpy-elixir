@@ -29,12 +29,12 @@ good solution to this problem that runs well on multi-core machines.
     - ![Could not display. Check util/SampleOutputCap.png](util/SampleOutputCap.png?raw=true)
 
 ## Observations 
-- **Size of Work Unit = 1** 
-  - N actors are spawned and each is passed (i,k) where 1 <= i <= N
-  - Each Actor sums up squares of numbers 1..N and prints out i if the sum is a perfect square 
+- **Size of Work Unit = 100000** 
+  - N actors are spawned if N < WorkUnit else WorkUnit Actors are spawned
+  - Each Actor sums up squares of k and sends a message to the parent if the starting index satisfies the lucas pyramid property 
 - **Execution Result for N=10000 k=4**
   - ![Could not display. Check util/OutCap.png](util/OutCap.png?raw=true)
   - Running Time on a 4 Core(2 Real + 2 Logical through Intel's Hyperthreading) = 7.686s 
-  - CPU Time / Real Time = **3.369372**
-- Largest Problem Solved N=10000000 k=2 
+  - CPU Time / Real Time = **3.30668**
+- Largest Problem Solved N=10000000 k=4
   

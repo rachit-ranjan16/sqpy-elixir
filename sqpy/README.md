@@ -36,5 +36,5 @@ good solution to this problem that runs well on multi-core machines.
   - ![Could not display. Check util/OutCap.png](util/OutCap.png?raw=true)
   - Running Time on a 4 Core(2 Real + 2 Logical through Intel's Hyperthreading) = 7.686s 
   - CPU Time / Real Time = **3.369372**
-- Largest Problem Solved N=100000000 k=2
- **TODO Add Snap here** 
+- Largest Problem Solved N=10000000 k=2 
+  

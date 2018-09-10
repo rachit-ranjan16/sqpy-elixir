@@ -23,6 +23,8 @@ good solution to this problem that runs well on multi-core machines.
   - mix run 
   - mix escript.bulid
   - ./sqpy N k 
+- Run Unit Tests 
+  - mix test
   
 - Parent thread will print N,k. Actors will print starting index for each lucas square pyramid containing k terms
   - Sample Output

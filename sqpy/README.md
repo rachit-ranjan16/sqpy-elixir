@@ -19,11 +19,11 @@ good solution to this problem that runs well on multi-core machines.
 
 ## Execution Instructions 
 - Navigate to sqpy
-    ``` shell
+    ```bash
     cd sqpy
     ``` 
 - Execute the following with integers substituted for N and k  
-   ```shell
+   ```bash
    mix run 
    mix escript.bulid
    ./sqpy N k 
@@ -42,4 +42,3 @@ good solution to this problem that runs well on multi-core machines.
   - CPU Time / Real Time = **3.369372**
 - Largest Problem Solved N=100000000 k=2
  **TODO Add Snap here** 
-
